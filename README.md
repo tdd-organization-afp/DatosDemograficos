@@ -7,4 +7,6 @@ Plantilla para el [curso de desarrollo para QA](https://jj.github.io/curso-tdd)
 | @morevi  |
 | ------------- |
 | @aure-nogueras  |
+| ------------- |
+| @PedroMFC  |
 
