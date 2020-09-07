@@ -2,4 +2,9 @@
 
 Plantilla para el [curso de desarrollo para QA](https://jj.github.io/curso-tdd)
 
-Aure Nogueras
+| Usuario |
+| ------------- |
+| @morevi  |
+| ------------- |
+| @aure-nogueras  |
+
