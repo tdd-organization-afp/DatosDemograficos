@@ -2,7 +2,7 @@
 name = "DatosDemográficos"
 version = "0.1.0"
 description = "Aplicación para visualizar datos demográficos del INE"
-authors = ["Pedro Flores <pedro_23_96@hotmail.com>", "Aure Nogueras <anogueras@correo.ugr.es>"]
+authors = ["Pedro Flores <pedro_23_96@hotmail.com>", "Aure Nogueras <anogueras@correo.ugr.es>", "Francisco Moreno <morevi@correo.ugr.es>"]
 homepage = "https://github.com/tdd-organization-afp/DatosDemograficos"
 
 [tool.poetry.dependencies]
