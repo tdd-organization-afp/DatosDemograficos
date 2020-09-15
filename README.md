@@ -16,6 +16,12 @@ La elección de estas herramientas se discute en un [issue](https://github.com/t
 - Aplicación web: `Flask`.
 - Gráficas: `Matplotlib` y `Geopandas`.
 
+## Estructura del proyecto
+
+La estructura principal se encuentra dentro de la carpeta [DatosDemograficos](https://github.com/tdd-organization-afp/DatosDemograficos/tree/master/DatosDemogr%C3%A1ficos). Ahí se localizan todos los archivos relativos a la API, el frontend...
+
+Además, también hemos incluido un archivo [requirements.txt](https://github.com/tdd-organization-afp/DatosDemograficos/blob/master/requirements.txt) con los requisitos necesarios para el proyecto.
+
 ## Colaboradores
 
 | Usuario |
