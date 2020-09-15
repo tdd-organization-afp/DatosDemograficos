@@ -1,0 +1,7 @@
+{
+  "lenguaje" : "Python",
+  "build" : "DatosDemográficos/pyproject.toml",
+  "ficheros" : ["DatosDemográficos/api.py",
+                "DatosDemográficos/INE_tools.py",
+                "DatosDemográficos/webapp.py"]
+}
