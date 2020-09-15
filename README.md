@@ -8,7 +8,7 @@ Esta api aceptará diferentes datos sobre la demografía española recogidos en 
 
 ## Herramientas que van a utilizarse
 
-La elección de estas herramientas se discute en un [issue](https://github.com/tdd-organization-afp/tdd-provisional/issues/7) y se irán modificando en función de las necesidades del proyecto.
+La elección de estas herramientas se discute en un [issue](https://github.com/tdd-organization-afp/tdd-provisional/issues/7) y se irán modificando en función de las necesidades que tenga el proyecto.
 
 - Lenguaje: `Python`.
 - Logging: mecanismo interno del lenguaje o `Logstach`.
