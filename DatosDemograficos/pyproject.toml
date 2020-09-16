@@ -9,6 +9,9 @@ homepage = "https://github.com/tdd-organization-afp/DatosDemograficos"
 python = "^3.8"
 flask = "1.1.2"
 requests = "*"
+matplotlib = "3.3.2"
+geopandas = "0.8.0"
+descartes = "1.1.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
