@@ -9,9 +9,9 @@ def home():
 	#Añadir formulario con los filtros de búsqueda
 	return redirect(url_for('buscar', name="filtro"))
     
-@app.route('/<filtro>')
-def buscar(filtro):
-    info = requests.get('http://localhost:5000/'+filtro)
+@app.route('/<name>')
+def buscar(name):
+    info = requests.get('http://localhost:5000/'+name)
     return info.text
     
 if __name__ == '__main__':
