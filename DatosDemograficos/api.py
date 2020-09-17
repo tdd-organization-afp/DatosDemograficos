@@ -5,7 +5,6 @@ import INE_tools as ine
 app = Flask(__name__)
 api = Api(app)
 
-
 class BusquedaDatos(Resource):
 	def get(self, filtro):
 		return ine.INEDataBase(filtro)
