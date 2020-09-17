@@ -68,10 +68,10 @@ ACCESO_HOMBRES = 1
 ACCESO_MUJERES = 2
 
 # VARIABLES PARA CADA UNO DE LOS FILTROS
-TOTAL_POB_MAPA    = 'totalpobmapa'
-HOMBRE_POB_MAPA   = 'hompobmapa'
-MUJER_POB_MAPA    = 'mujpobmapa'
-TOTAL_POB_BAR     = 'totalpobbar'
-HOMBRE_POB_BAR    = 'hompobbar'
-MUJER_POB_BAR     = 'mujpobbar'
-AMBOS_POB_BAR	   = 'ambospobbar'
+TOTAL_POB_MAPA    = "totalpobmapa"
+HOMBRE_POB_MAPA   = "hompobmapa"
+MUJER_POB_MAPA    = "mujpobmapa"
+TOTAL_POB_BAR     = "totalpobbar"
+HOMBRE_POB_BAR    = "hompobbar"
+MUJER_POB_BAR     = "mujpobbar"
+AMBOS_POB_BAR	   = "ambospobbar"

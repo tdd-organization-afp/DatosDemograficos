@@ -4,6 +4,7 @@ import matplotlib
 import geopandas as gpd
 import matplotlib.pyplot as plt
 import numpy as np
+import unicodedata
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 from settings import *
@@ -12,25 +13,25 @@ from settings import *
 #Función principal que se encarga de crear el gráfico adecuado	 
 ####################################################################
 def INEDataBase(filtro):
-
-	resultado =  "Filtro no válido"
 	
-	if( filtro == TOTAL_POB_MAPA):
-		resultado = totalPobMapa()
+	if(filtro == TOTAL_POB_MAPA):
+		totalPobMapa()
 	elif (filtro == HOMBRE_POB_MAPA):
-		resultado = homPobMapa()
+		homPobMapa()
 	elif (filtro == MUJER_POB_MAPA):
-		resultado = mujPobMapa()
+		mujPobMapa()
 	elif (filtro == TOTAL_POB_BAR):
-		resultado = totalPobBar()
+		totalPobBar()
 	elif (filtro == HOMBRE_POB_BAR):
-		resultado = homPobBar()
+		homPobBar()
 	elif (filtro == MUJER_POB_BAR):
-		resultado = mujPobBar()
+		mujPobBar()
 	elif (filtro == AMBOS_POB_BAR):
-		resultado = ambosPobBar()
+		ambosPobBar()
+	else:
+		filtro = "non_valid"
 			
-	return resultado
+	return filtro
 
 ####################################################################
 # Función para guardar la población total en un mapa
@@ -74,9 +75,9 @@ def totalPobMapa():
 		map_data.plot(column='POB2020', cmap='plasma', ax=ax,
 			      legend=True, cax=cax, zorder=5)
 		
-		plt.savefig("fig/total_pob_mapa.png")
+		plt.savefig("static/total_pob_mapa.png")
 		
-		return "Mapa guardado con éxito. Búsqueda por: total población mapa"
+		#return "Mapa guardado con éxito. Búsqueda por: total población mapa"
 		
 	except requests.exceptions.RequestException as e: 
     		raise SystemExit(e)
@@ -125,9 +126,9 @@ def homPobMapa():
 		map_data.plot(column='POB2020', cmap='plasma', ax=ax,
 			      legend=True, cax=cax, zorder=5)
 	
-		plt.savefig("fig/hom_pob_mapa.png")
+		plt.savefig("static/hom_pob_mapa.png")
 		
-		return "Mapa guardado con éxito. Búsqueda por: total población hombres mapa"
+		#return "Mapa guardado con éxito. Búsqueda por: total población hombres mapa"
 		
 	except requests.exceptions.RequestException as e: 
     		raise SystemExit(e)
@@ -174,9 +175,9 @@ def mujPobMapa():
 		map_data.plot(column='POB2020', cmap='plasma', ax=ax,
 			      legend=True, cax=cax, zorder=5)
 
-		plt.savefig("fig/muj_pob_mapa.png")
+		plt.savefig("static/muj_pob_mapa.png")
 		
-		return "Mapa guardado con éxito. Búsqueda por: total población mujeres mapa"
+		#return "Mapa guardado con éxito. Búsqueda por: total población mujeres mapa"
 		
 	except requests.exceptions.RequestException as e: 
     		raise SystemExit(e)
@@ -212,9 +213,9 @@ def totalPobBar():
 		ax.set_xlabel('Población (en 100 000 habitantes)')
 
 		plt.title('Población total por provincias')
-		plt.savefig("fig/total_pob_bar.png")
+		plt.savefig("static/total_pob_bar.png")
 		
-		return "Mapa guardado con éxito. Búsqueda por: total población barras"
+		#return "Mapa guardado con éxito. Búsqueda por: total población barras"
 		
 	except requests.exceptions.RequestException as e: 
     		raise SystemExit(e)
@@ -250,9 +251,9 @@ def homPobBar():
 		ax.set_xlabel('Población (en 100 000 habitantes)')
 
 		plt.title('Población hombres por provincias')
-		plt.savefig("fig/hom_pob_bar.png")
+		plt.savefig("static/hom_pob_bar.png")
 		
-		return "Mapa guardado con éxito. Búsqueda por: hombres población barras"
+		#return "Mapa guardado con éxito. Búsqueda por: hombres población barras"
 		
 	except requests.exceptions.RequestException as e: 
     		raise SystemExit(e)
@@ -288,9 +289,9 @@ def mujPobBar():
 		ax.set_xlabel('Población (en 100 000 habitantes)')
 
 		plt.title('Población mujeres por provincias')
-		plt.savefig("fig/muj_pob_bar.png")
+		plt.savefig("static/muj_pob_bar.png")
 		
-		return "Mapa guardado con éxito. Búsqueda por: mujeres población barras"
+		#return "Mapa guardado con éxito. Búsqueda por: mujeres población barras"
 		
 	except requests.exceptions.RequestException as e: 
     		raise SystemExit(e)
@@ -336,9 +337,9 @@ def ambosPobBar():
 		ax.legend()
 
 		plt.title('Población hombres/mujeres por provincias')
-		plt.savefig("fig/ambos_pob_bar.png")
+		plt.savefig("static/ambos_pob_bar.png")
 		
-		return "Mapa guardado con éxito. Búsqueda por: hombres/mujeres población barras"
-		
+		#return "Mapa guardado con éxito. Búsqueda por: hombres/mujeres población barras"
+	
 	except requests.exceptions.RequestException as e: 
     		raise SystemExit(e)
