@@ -82,12 +82,12 @@ def INEDataBase(filtro):
 		# Nos quedamos con la población total en cada provincia
 		poblacion = []
 		for i in range(INI_INFO_TOTAL, FIN_INFO_TOTAL, INCREMENTO):
-			poblacion.append(jsonInfo[i]["Data"][0]["Valor"])
+			poblacion.append(jsonInfo[i]["Data"][0]["Valor"] / 100000.0)
 
 		# Leemos el geojson e incluimos la nueva columna
 		m = "geojson/spain-provinces.geojson"
 		map_data = gpd.read_file(m)
-		map_data['POB2020'] = ""
+		map_data['POB2020'] = 0.0
 		
 		# Incluimos la información
 		for i in range(len(TRADUCTOR)):
@@ -98,7 +98,7 @@ def INEDataBase(filtro):
 		# Control del encuadre (área geográfica) del mapa
 		ax.axis([-12, 5, 32, 48])
 		# Control del título y los ejes
-		ax.set_title('Población de las provincias españolas 2020', 
+		ax.set_title('Población total por provincias en 2020 (en 100 000 habitantes)', 
 			     pad = 20, 
 			     fontdict={'fontsize':20, 'color': '#4873ab'})
 		ax.set_xlabel('Longitud')
