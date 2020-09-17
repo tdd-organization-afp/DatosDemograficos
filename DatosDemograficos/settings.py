@@ -55,6 +55,7 @@ TRADUCTOR = [   12,    # Albacete
 		10	# Zaragoza
 		]
 
+
 # La información proporcionada por el INE viene, por cada provincia, seguidos los datos de la población total, hombres y mujeres.
 # Por tanto, tenemos que hacer incrementos de tres en tres para acceder a la misma información
 INCREMENTO = 3
@@ -63,5 +64,14 @@ INI_INFO_TOTAL = 3 # Comienzo de la información 3-> Total. Albacete
 		    #				  5-> Mujeres. Albacete
 		    #				  6-> Total. Alicante ....
 FIN_INFO_TOTAL = 151
+ACCESO_HOMBRES = 1
+ACCESO_MUJERES = 2
 
-	
+# VARIABLES PARA CADA UNO DE LOS FILTROS
+TOTAL_POB_MAPA    = 'totalpobmapa'
+HOMBRE_POB_MAPA   = 'hompobmapa'
+MUJER_POB_MAPA    = 'mujpobmapa'
+TOTAL_POB_BAR     = 'totalpobbar'
+HOMBRE_POB_BAR    = 'hompobbar'
+MUJER_POB_BAR     = 'mujpobbar'
+AMBOS_POB_BAR	   = 'ambospobbar'
