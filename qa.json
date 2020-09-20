@@ -2,7 +2,8 @@
   "lenguaje" : "Python",
   "build" : "DatosDemograficos/pyproject.toml",
   "ficheros" : ["DatosDemograficos/api.py",
-                "DatosDemograficos/INE_tools.py",
+                "DatosDemograficos/Datos/INE_tools.py",
                 "DatosDemograficos/webapp.py",
-                "DatosDemograficos/settings.py"]
+                "DatosDemograficos/Datos/settings.py", 
+                "tests/test_webapp.py"]
 }

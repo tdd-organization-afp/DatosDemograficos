@@ -2,7 +2,7 @@
 URL_POBLACION = "https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/9687?nult=1"
 
 # El orden de las provincias en el INE y en el geojson están en diferente orden.
-# Mediante este array podemos hacer la tradcucción INE->geojson
+# Mediante este array podemos hacer la traducción INE->geojson
 TRADUCTOR = [   12,    # Albacete
 		32,	# Alicante
 		 0,	# Almería 

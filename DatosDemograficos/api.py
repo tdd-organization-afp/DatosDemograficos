@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_restful import Resource, Api
-import INE_tools as ine
+import Datos.INE_tools as ine
 
 app = Flask(__name__)
 api = Api(app)
