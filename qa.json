@@ -3,5 +3,6 @@
   "build" : "DatosDemograficos/pyproject.toml",
   "ficheros" : ["DatosDemograficos/api.py",
                 "DatosDemograficos/INE_tools.py",
-                "DatosDemograficos/webapp.py"]
+                "DatosDemograficos/webapp.py",
+                "DatosDemograficos/settings.py"]
 }
