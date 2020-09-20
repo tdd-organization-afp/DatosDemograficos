@@ -1,7 +1,7 @@
 from flask import Flask, redirect, url_for, render_template
 import requests
 import json
-from settings import *
+from Datos.settings import *
 
 app = Flask(__name__)
 

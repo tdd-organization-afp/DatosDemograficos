@@ -7,27 +7,29 @@ import numpy as np
 import unicodedata
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 
-from settings import *
+from .settings import *
 
 ####################################################################
 #Función principal que se encarga de crear el gráfico adecuado	 
 ####################################################################
 def INEDataBase(filtro):
+	prefijo = "Datos/"
+	prefijo2 = "static/"
 	
 	if(filtro == TOTAL_POB_MAPA):
-		totalPobMapa()
+		totalPobMapa(prefijo, prefijo2)
 	elif (filtro == HOMBRE_POB_MAPA):
-		homPobMapa()
+		homPobMapa(prefijo, prefijo2)
 	elif (filtro == MUJER_POB_MAPA):
-		mujPobMapa()
+		mujPobMapa(prefijo, prefijo2)
 	elif (filtro == TOTAL_POB_BAR):
-		totalPobBar()
+		totalPobBar(prefijo2)
 	elif (filtro == HOMBRE_POB_BAR):
-		homPobBar()
+		homPobBar(prefijo2)
 	elif (filtro == MUJER_POB_BAR):
-		mujPobBar()
+		mujPobBar(prefijo2)
 	elif (filtro == AMBOS_POB_BAR):
-		ambosPobBar()
+		ambosPobBar(prefijo2)
 	else:
 		filtro = "non_valid"
 			
@@ -36,7 +38,7 @@ def INEDataBase(filtro):
 ####################################################################
 # Función para guardar la población total en un mapa
 ####################################################################
-def totalPobMapa():
+def totalPobMapa(prefijo, prefijo2):
 	# Obtenemos la información de la URL
 	try:
 		info = requests.get(URL_POBLACION)
@@ -48,7 +50,7 @@ def totalPobMapa():
 			poblacion.append(jsonInfo[i]["Data"][0]["Valor"] / 100000.0)
 
 		# Leemos el geojson e incluimos la nueva columna
-		m = "geojson/spain-provinces.geojson"
+		m = prefijo + "geojson/spain-provinces.geojson"
 		map_data = gpd.read_file(m)
 		map_data['POB2020'] = 0.0
 		
@@ -75,9 +77,9 @@ def totalPobMapa():
 		map_data.plot(column='POB2020', cmap='plasma', ax=ax,
 			      legend=True, cax=cax, zorder=5)
 		
-		plt.savefig("static/total_pob_mapa.png")
+		plt.savefig(prefijo2 + "total_pob_mapa.png")
 		
-		#return "Mapa guardado con éxito. Búsqueda por: total población mapa"
+		return "Mapa del total de la población generado correctamente."
 		
 	except requests.exceptions.RequestException as e: 
     		raise SystemExit(e)
@@ -87,7 +89,7 @@ def totalPobMapa():
 ####################################################################
 # Función para guardar la población total de hombres en un mapa
 ####################################################################
-def homPobMapa():
+def homPobMapa(prefijo, prefijo2):
 	# Obtenemos la información de la URL
 	try:
 		info = requests.get(URL_POBLACION)
@@ -99,7 +101,7 @@ def homPobMapa():
 			poblacion.append(jsonInfo[i+ACCESO_HOMBRES]["Data"][0]["Valor"] / 100000.0)
 
 		# Leemos el geojson e incluimos la nueva columna
-		m = "geojson/spain-provinces.geojson"
+		m = prefijo + "geojson/spain-provinces.geojson"
 		map_data = gpd.read_file(m)
 		map_data['POB2020'] = 0.0
 		
@@ -126,17 +128,17 @@ def homPobMapa():
 		map_data.plot(column='POB2020', cmap='plasma', ax=ax,
 			      legend=True, cax=cax, zorder=5)
 	
-		plt.savefig("static/hom_pob_mapa.png")
+		plt.savefig(prefijo2 + "hom_pob_mapa.png")
 		
-		#return "Mapa guardado con éxito. Búsqueda por: total población hombres mapa"
+		return "Mapa del total de hombres generado correctamente."
 		
 	except requests.exceptions.RequestException as e: 
     		raise SystemExit(e)
 
 ####################################################################
-# Función para guardar la población total de hombres en un mapa
+# Función para guardar la población total de mujeres en un mapa
 ####################################################################
-def mujPobMapa():
+def mujPobMapa(prefijo, prefijo2):
 	# Obtenemos la información de la URL
 	try:
 		info = requests.get(URL_POBLACION)
@@ -148,7 +150,7 @@ def mujPobMapa():
 			poblacion.append(jsonInfo[i+ACCESO_MUJERES]["Data"][0]["Valor"] / 100000.0)
 
 		# Leemos el geojson e incluimos la nueva columna
-		m = "geojson/spain-provinces.geojson"
+		m = prefijo + "geojson/spain-provinces.geojson"
 		map_data = gpd.read_file(m)
 		map_data['POB2020'] = 0.0
 		
@@ -175,9 +177,9 @@ def mujPobMapa():
 		map_data.plot(column='POB2020', cmap='plasma', ax=ax,
 			      legend=True, cax=cax, zorder=5)
 
-		plt.savefig("static/muj_pob_mapa.png")
+		plt.savefig(prefijo2 + "muj_pob_mapa.png")
 		
-		#return "Mapa guardado con éxito. Búsqueda por: total población mujeres mapa"
+		return "Mapa del total de mujeres generado correctamente."
 		
 	except requests.exceptions.RequestException as e: 
     		raise SystemExit(e)
@@ -185,7 +187,7 @@ def mujPobMapa():
 ####################################################################    		
 # Función para guardar la población total en un gráfico de barras
 ####################################################################
-def totalPobBar():
+def totalPobBar(prefijo2):
 	# Obtenemos la información de la URL
 	try:
 		info = requests.get(URL_POBLACION)
@@ -213,9 +215,9 @@ def totalPobBar():
 		ax.set_xlabel('Población (en 100 000 habitantes)')
 
 		plt.title('Población total por provincias')
-		plt.savefig("static/total_pob_bar.png")
+		plt.savefig(prefijo2 + "total_pob_bar.png")
 		
-		#return "Mapa guardado con éxito. Búsqueda por: total población barras"
+		return "Gráfico de barras del total de la población generado correctamente."
 		
 	except requests.exceptions.RequestException as e: 
     		raise SystemExit(e)
@@ -223,7 +225,7 @@ def totalPobBar():
 ####################################################################    		
 # Función para guardar la población hombres en un gráfico de barras
 ####################################################################
-def homPobBar():
+def homPobBar(prefijo2):
 	# Obtenemos la información de la URL
 	try:
 		info = requests.get(URL_POBLACION)
@@ -251,9 +253,9 @@ def homPobBar():
 		ax.set_xlabel('Población (en 100 000 habitantes)')
 
 		plt.title('Población hombres por provincias')
-		plt.savefig("static/hom_pob_bar.png")
+		plt.savefig(prefijo2 + "hom_pob_bar.png")
 		
-		#return "Mapa guardado con éxito. Búsqueda por: hombres población barras"
+		return "Gráfico de barras de hombres generado correctamente."
 		
 	except requests.exceptions.RequestException as e: 
     		raise SystemExit(e)
@@ -261,7 +263,7 @@ def homPobBar():
 ####################################################################    		
 # Función para guardar la población mujeres en un gráfico de barras
 ####################################################################
-def mujPobBar():
+def mujPobBar(prefijo2):
 	# Obtenemos la información de la URL
 	try:
 		info = requests.get(URL_POBLACION)
@@ -289,9 +291,9 @@ def mujPobBar():
 		ax.set_xlabel('Población (en 100 000 habitantes)')
 
 		plt.title('Población mujeres por provincias')
-		plt.savefig("static/muj_pob_bar.png")
+		plt.savefig(prefijo2 + "muj_pob_bar.png")
 		
-		#return "Mapa guardado con éxito. Búsqueda por: mujeres población barras"
+		return "Gráfico de barras de mujeres generado correctamente."
 		
 	except requests.exceptions.RequestException as e: 
     		raise SystemExit(e)
@@ -300,7 +302,7 @@ def mujPobBar():
 ####################################################################    		
 # Función para guardar la población hombres/mujeres en un gráfico de barras
 ####################################################################
-def ambosPobBar():
+def ambosPobBar(prefijo2):
 	# Obtenemos la información de la URL
 	try:
 		info = requests.get(URL_POBLACION)
@@ -337,9 +339,9 @@ def ambosPobBar():
 		ax.legend()
 
 		plt.title('Población hombres/mujeres por provincias')
-		plt.savefig("static/ambos_pob_bar.png")
+		plt.savefig(prefijo2 + "ambos_pob_bar.png")
 		
-		#return "Mapa guardado con éxito. Búsqueda por: hombres/mujeres población barras"
+		return "Gráfico de barras de hombres y mujeres generado correctamente."
 	
 	except requests.exceptions.RequestException as e: 
     		raise SystemExit(e)

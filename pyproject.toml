@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "DatosDemográficos"
+name = "DatosDemograficos"
 version = "0.1.0"
 description = "Aplicación para visualizar datos demográficos del INE"
 authors = ["Pedro Flores <pedro_23_96@hotmail.com>", "Aure Nogueras <anogueras@correo.ugr.es>", "Francisco Moreno <morevi@correo.ugr.es>"]
@@ -8,7 +8,7 @@ homepage = "https://github.com/tdd-organization-afp/DatosDemograficos"
 [tool.poetry.dependencies]
 python = "^3.8"
 flask = "1.1.2"
-requests = "*"
+requests = "^2.24.0"
 matplotlib = "3.3.2"
 geopandas = "0.8.0"
 descartes = "1.1.0"
@@ -23,4 +23,4 @@ build-backend = "poetry.masonry.api"
 
 [tool.taskipy.tasks]
 test = ""
-prueba_test = "python -m pytest tests/test_webapp.py"
+prueba_test = "python3 -m pytest tests/test_webapp.py"
