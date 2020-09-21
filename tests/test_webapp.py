@@ -37,3 +37,7 @@ def test_mujPobBar():
 def test_ambosPobBar():
 	info = INE_tools.ambosPobBar(PREFIJO2)
 	assert info == "Gráfico de barras de hombres y mujeres generado correctamente."
+	
+def test_error():
+	info = INE_tools.INEDataBase("asdasd")
+	assert info == "non_valid"
