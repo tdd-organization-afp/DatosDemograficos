@@ -30,3 +30,30 @@ Además, también hemos incluido un archivo [requirements.txt](https://github.co
 | @aure-nogueras  |
 | @PedroMFC  |
 
+# Instrucciones
+
+Tanto para ejecutar los tests como para instalar las dependencias es necesario tener instalado `poetry`. Para la intalación de dependencias se usará la orden
+
+```console
+poetry install
+```
+
+o si se desean actualizar las mismas
+
+```console
+poetry update
+```
+
+Por su parte, para ejecutar los archivos con los tests se puede usar la orden
+
+```console
+python3 -m pytest ../tests/test_*.py
+```
+
+Sin embargo, se puede usar `taskipy` como *task runner* y ejecutar los tests de una manera más sencilla junto con la funcionalidad que proporciona `poetry` ejecutando la orden
+
+```console
+poetry run task test
+```
+
+donde `test` puede ser sustituida por cualquier otra tarea para ejecutar los archivos de tests.
