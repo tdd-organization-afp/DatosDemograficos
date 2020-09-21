@@ -22,5 +22,4 @@ requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
 
 [tool.taskipy.tasks]
-test = ""
-prueba_test = "python3 -m pytest ../tests/test_webapp.py"
+test = "python3 -m pytest ../tests/test_webapp.py"
