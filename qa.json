@@ -4,6 +4,6 @@
   "ficheros" : ["DatosDemograficos/api.py",
                 "DatosDemograficos/Datos/INE_tools.py",
                 "DatosDemograficos/webapp.py",
-                "DatosDemograficos/Datos/settings.py", 
-                "tests/test_webapp.py"]
+                "DatosDemograficos/Datos/settings.py"] ,
+  "test" : ["tests/test_webapp.py"]           
 }
