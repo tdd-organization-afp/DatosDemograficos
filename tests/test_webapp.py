@@ -5,8 +5,8 @@ from ..DatosDemograficos.Datos import INE_tools
 from ..DatosDemograficos.Datos import geojson
 from ..DatosDemograficos.Datos import static
 
-PREFIJO = "DatosDemograficos/Datos/"
-PREFIJO2 = "DatosDemograficos/Datos/static/"
+PREFIJO = "Datos/"
+PREFIJO2 = "Datos/static/"
 
 # Tests para comprobar que los mapas y las gráficas se generan de forma correcta
 
