@@ -9,6 +9,7 @@ python:
 # command to install dependencies
 install: 
 - curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3
+- source $HOME/.poetry/env
 - cd DatosDemograficos; poetry install
 - cd DatosDemograficos; poetry update
 # command to run tests
