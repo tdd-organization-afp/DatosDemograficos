@@ -1,3 +1,15 @@
-language: minimal
-
-script: /bin/true
+language: python
+python: 
+	- "2.7"
+	- "3.4"
+	- "3.5"
+	- "3.6"
+	- "3.7"
+	- "3.8"
+# command to install dependencies
+install: 
+	- cd DatosDemograficos; poetry install
+	- cd DatosDemograficos; poetry update
+# command to run tests
+script:
+	- cd DatosDemograficos; poetry run task test
