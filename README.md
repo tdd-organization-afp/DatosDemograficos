@@ -2,6 +2,10 @@
 
 [![Build Status](https://travis-ci.org/tdd-organization-afp/DatosDemograficos.svg?branch=master)](https://travis-ci.org/github/tdd-organization-afp/DatosDemograficos)
 
+
+[![codecov](https://codecov.io/gh/tdd-organization-afp/DatosDemograficos/branch/master/graph/badge.svg)](https://codecov.io/gh/tdd-organization-afp/DatosDemograficos)
+
+
 Plantilla para el [curso de desarrollo para QA](https://jj.github.io/curso-tdd)
 
 ## Visualizador de información demográfica
@@ -32,9 +36,9 @@ Además, también hemos incluido un archivo [requirements.txt](https://github.co
 | @aure-nogueras  |
 | @PedroMFC  |
 
-# Instrucciones
+## Instrucciones
 
-Tanto para ejecutar los tests como para instalar las dependencias es necesario tener instalado `poetry`. Para la intalación de dependencias se usará la orden
+Tanto para ejecutar los tests como para instalar las dependencias es necesario tener instalado `poetry`. Para la instalación de dependencias se usará la orden
 
 ```console
 poetry install
@@ -45,6 +49,8 @@ o si se desean actualizar las mismas
 ```console
 poetry update
 ```
+
+# Tests
 
 Por su parte, para ejecutar los archivos con los tests se puede usar la orden
 
@@ -59,3 +65,12 @@ poetry run task test
 ```
 
 donde `test` puede ser sustituida por cualquier otra tarea para ejecutar los archivos de tests.
+
+# Tests de cobertura
+
+Para ejecutar los tests de cobertura desde el ejecutor de tareas, se usará
+
+```console
+poetry run task coverage
+```
+
