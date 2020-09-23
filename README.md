@@ -5,6 +5,8 @@
 
 [![codecov](https://codecov.io/gh/tdd-organization-afp/DatosDemograficos/branch/master/graph/badge.svg)](https://codecov.io/gh/tdd-organization-afp/DatosDemograficos)
 
+[![Coverage Status](https://codecov.io/gh/tdd-organization-afp/DatosDemograficos/branch/codecov/graphs/tree.svg)](https://codecov.io/gh/tdd-organization-afp/DatosDemograficos)
+
 
 Plantilla para el [curso de desarrollo para QA](https://jj.github.io/curso-tdd)
 
