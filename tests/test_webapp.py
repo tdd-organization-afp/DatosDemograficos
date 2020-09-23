@@ -8,8 +8,8 @@ from ..DatosDemograficos.Datos import static
 PREFIJO = "Datos/"
 PREFIJO2 = "Datos/static/"
 
-# Tests para comprobar que los mapas y las gráficas se generan de forma correcta
 
+# Tests para comprobar que los mapas y las gráficas se generan de forma correcta
 def test_totalPobMapa():
 	info = INE_tools.totalPobMapa(PREFIJO, PREFIJO2)
 	assert info == "Mapa del total de la población generado correctamente."
