@@ -50,7 +50,7 @@ o si se desean actualizar las mismas
 poetry update
 ```
 
-# Tests
+## Tests
 
 Por su parte, para ejecutar los archivos con los tests se puede usar la orden
 
@@ -66,7 +66,7 @@ poetry run task test
 
 donde `test` puede ser sustituida por cualquier otra tarea para ejecutar los archivos de tests.
 
-# Tests de cobertura
+## Tests de cobertura
 
 Para ejecutar los tests de cobertura desde el ejecutor de tareas, se usará
 
