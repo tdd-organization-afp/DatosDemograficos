@@ -1,6 +1,6 @@
 # Curso de programación para QA
 
-[![Build Status](https://travis-ci.org/tdd-organization-afp/DatosDemograficos.svg?branch=master)]
+[![Build Status](https://travis-ci.org/tdd-organization-afp/DatosDemograficos.svg?branch=master)](https://travis-ci.org/github/tdd-organization-afp/DatosDemograficos)
 
 Plantilla para el [curso de desarrollo para QA](https://jj.github.io/curso-tdd)
 
