@@ -11,7 +11,8 @@ install:
 - cd DatosDemograficos; poetry update
 # command to run tests
 script:
-- cd DatosDemograficos; poetry run task test
+- cd DatosDemograficos; poetry run task coverage 
 #Codecov
 after_success:
+  - codecov
   - bash <(curl -s https://codecov.io/bash)
