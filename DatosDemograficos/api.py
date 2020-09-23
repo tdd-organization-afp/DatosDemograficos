@@ -8,7 +8,7 @@ api = Api(app)
 class BusquedaDatos(Resource):
 	def get(self, filtro):
 		return ine.INEDataBase(filtro)
-
+        
 api.add_resource(BusquedaDatos, '/<filtro>')
 
 if __name__ == '__main__':
