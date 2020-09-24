@@ -30,7 +30,7 @@ def client():
 @pytest.mark.integration_test
 def test_home(client):
 	rv = client.get("/")
-	assert rv.status_code == 302
+	assert rv.status_code == 200
 
 @pytest.mark.integration_test
 def test_totalPobMapa(client):
