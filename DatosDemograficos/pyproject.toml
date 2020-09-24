@@ -16,6 +16,7 @@ descartes = "1.1.0"
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
 pytest-cov = "2.10.1"
+pytest-integration = "0.2.2"
 taskipy = "^1.3.0"
 
 [build-system]
@@ -24,4 +25,7 @@ build-backend = "poetry.masonry.api"
 
 [tool.taskipy.tasks]
 test = "python3 -m pytest ../tests/test_webapp.py"
+test_int = "python3 -m pytest ../tests/test_integration.py"
 coverage = "pytest --cov=./Datos ../tests/test_webapp.py"
+run = "python3 api.py"
+run_web = "python3 webapp.py"

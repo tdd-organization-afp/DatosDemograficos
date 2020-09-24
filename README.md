@@ -74,5 +74,19 @@ Para ejecutar los tests de cobertura desde el ejecutor de tareas, se usará
 
 ```console
 poetry run task coverage
-```
 
+```
+## Arrancar el microservicio
+
+Para arrancar el microservicio se usará
+
+```console
+poetry run task run
+
+```
+que lanzará el servidor que recibe las distintas peticiones. Para acceder al servicio web y ver los resultados de las peticiones al servidor antes mencionado podemos usar
+
+```console
+poetry run task run_web
+
+```

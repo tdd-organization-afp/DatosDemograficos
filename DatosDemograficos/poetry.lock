@@ -384,6 +384,14 @@ pytest = ">=4.6"
 testing = ["fields", "hunter", "process-tests (2.0.2)", "six", "pytest-xdist", "virtualenv"]
 
 [[package]]
+category = "dev"
+description = "Organizing pytests by integration or not"
+name = "pytest-integration"
+optional = false
+python-versions = ">=3.6"
+version = "0.2.2"
+
+[[package]]
 category = "main"
 description = "Extensions to the standard Python datetime module"
 name = "python-dateutil"
@@ -495,7 +503,7 @@ dev = ["pytest", "pytest-timeout", "coverage", "tox", "sphinx", "pallets-sphinx-
 watchdog = ["watchdog"]
 
 [metadata]
-content-hash = "f224d8219bef350f6e6e67261cc8971cc2a76ac685b06c1db65f66ad8db12bbc"
+content-hash = "437eedb58f1532a73b8faf5052f9647e12ae20f29c900b972e212cbe1aa921cc"
 lock-version = "1.0"
 python-versions = "^3.8"
 
@@ -831,6 +839,10 @@ pytest = [
 pytest-cov = [
     {file = "pytest-cov-2.10.1.tar.gz", hash = "sha256:47bd0ce14056fdd79f93e1713f88fad7bdcc583dcd7783da86ef2f085a0bb88e"},
     {file = "pytest_cov-2.10.1-py2.py3-none-any.whl", hash = "sha256:45ec2d5182f89a81fc3eb29e3d1ed3113b9e9a873bcddb2a71faaab066110191"},
+]
+pytest-integration = [
+    {file = "pytest_integration-0.2.2-py3-none-any.whl", hash = "sha256:560b18c003cf6a3d6672878e826a823ea5f8d1d289dbe97546495040b2f0bd3d"},
+    {file = "pytest_integration-0.2.2.tar.gz", hash = "sha256:7630b2bb1a8d518168bae44d827c20c4f0c1bbc5a1d3e1014dc5624ccadcdbd1"},
 ]
 python-dateutil = [
     {file = "python-dateutil-2.8.1.tar.gz", hash = "sha256:73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"},

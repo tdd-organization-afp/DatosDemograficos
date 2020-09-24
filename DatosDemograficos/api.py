@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from flask_restful import Resource, Api
 import Datos.INE_tools as ine
 
@@ -8,8 +8,8 @@ api = Api(app)
 class BusquedaDatos(Resource):
 	def get(self, filtro):
 		return ine.INEDataBase(filtro)
-        
+		
 api.add_resource(BusquedaDatos, '/<filtro>')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, use_reloader=False)
