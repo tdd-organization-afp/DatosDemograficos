@@ -76,6 +76,14 @@ Para ejecutar los tests de cobertura desde el ejecutor de tareas, se usará
 poetry run task coverage
 
 ```
+## Tests de integración
+
+Para ejecutar los tests de integración desde el ejecutor de tareas, se usará
+
+```console
+poetry run task test_int
+
+```
 ## Arrancar el microservicio
 
 Para arrancar el microservicio se usará
