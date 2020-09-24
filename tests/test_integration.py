@@ -5,7 +5,6 @@ from ..DatosDemograficos.Datos import INE_tools
 from ..DatosDemograficos.Datos import geojson
 from ..DatosDemograficos.Datos import static
 from ..DatosDemograficos.Datos import settings
-from flask import render_template
 import webapp
 import api
 
