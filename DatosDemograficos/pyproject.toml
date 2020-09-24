@@ -8,6 +8,7 @@ homepage = "https://github.com/tdd-organization-afp/DatosDemograficos"
 [tool.poetry.dependencies]
 python = "^3.8"
 flask = "1.1.2"
+flask-restful = ""
 requests = "^2.24.0"
 matplotlib = "3.3.2"
 geopandas = "0.8.0"
