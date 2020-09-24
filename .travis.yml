@@ -12,6 +12,7 @@ install:
 # command to run tests
 script:
 - cd DatosDemograficos; poetry run task coverage 
+- cd DatosDemograficos; poetry run task test_int 
 #Codecov
 after_success:
 - bash <(curl -s https://codecov.io/bash)
