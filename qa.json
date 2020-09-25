@@ -5,6 +5,6 @@
                 "DatosDemograficos/Datos/INE_tools.py",
                 "DatosDemograficos/webapp.py",
                 "DatosDemograficos/Datos/settings.py"] ,
-  "test" : ["tests/test_webapp.py"]   ,    
+  "test" : ["tests/test_webapp.py" , "tests/test_integration.py"]   ,    
   "runner" : "poetry run task"    
 }
