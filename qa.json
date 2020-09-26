@@ -7,5 +7,5 @@
                 "DatosDemograficos/Datos/settings.py"] ,
   "test" : ["tests/test_webapp.py", "tests/test_integration.py"]   ,    
   "runner" : "poetry run task"   ,
-  "dateadpr" :  "DatosDemograficos/api.py"
+  "dateador" :  "DatosDemograficos/api.py"
 }
