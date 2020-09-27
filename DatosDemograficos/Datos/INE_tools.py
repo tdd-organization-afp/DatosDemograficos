@@ -16,23 +16,21 @@ class CargadorINE(abc.ABC):
 	####################################################################
 
 	def INEDataBase(self, filtro):
-		prefijo = "Datos/"
-		prefijo2 = "static/"
-	    
+		
 		if(filtro == TOTAL_POB_MAPA):
-			self.totalPobMapa(prefijo, prefijo2)
+			self.totalPobMapa()
 		elif (filtro == HOMBRE_POB_MAPA):
-			self.homPobMapa(prefijo, prefijo2)
+			self.homPobMapa()
 		elif (filtro == MUJER_POB_MAPA):
-			self.mujPobMapa(prefijo, prefijo2)
+			self.mujPobMapa()
 		elif (filtro == TOTAL_POB_BAR):
-			self.totalPobBar(prefijo2)
+			self.totalPobBar()
 		elif (filtro == HOMBRE_POB_BAR):
-			self.homPobBar(prefijo2)
+			self.homPobBar()
 		elif (filtro == MUJER_POB_BAR):
-			self.mujPobBar(prefijo2)
+			self.mujPobBar()
 		elif (filtro == AMBOS_POB_BAR):
-			self.ambosPobBar(prefijo2)
+			self.ambosPobBar()
 		else:
 			filtro = "non_valid"
 		    
@@ -42,42 +40,42 @@ class CargadorINE(abc.ABC):
 	# Función para guardar la población total en un mapa
 	####################################################################
 	@abc.abstractmethod
-	def totalPobMapa(self, prefijo, prefijo2):
+	def totalPobMapa(self):
 		pass
 		    		    
 	####################################################################
 	# Función para guardar la población total de hombres en un mapa
 	####################################################################
 	@abc.abstractmethod
-	def homPobMapa(self, prefijo, prefijo2):
+	def homPobMapa(self):
 		pass
 
 	####################################################################
 	# Función para guardar la población total de mujeres en un mapa
 	####################################################################
 	@abc.abstractmethod
-	def mujPobMapa(self, prefijo, prefijo2):
+	def mujPobMapa(self):
 		pass
 
 	####################################################################            
 	# Función para guardar la población total en un gráfico de barras
 	####################################################################
 	@abc.abstractmethod
-	def totalPobBar(self, prefijo2):
+	def totalPobBar(self):
 		pass
 
 	####################################################################            
 	# Función para guardar la población hombres en un gráfico de barras
 	####################################################################
 	@abc.abstractmethod
-	def homPobBar(self, prefijo2):
+	def homPobBar(self):
 		pass
 
 	####################################################################            
 	# Función para guardar la población mujeres en un gráfico de barras
 	####################################################################
 	@abc.abstractmethod
-	def mujPobBar(self, prefijo2):
+	def mujPobBar(self):
 		pass
 		    
 
@@ -85,7 +83,7 @@ class CargadorINE(abc.ABC):
 	# Función para guardar la población hombres/mujeres en un gráfico de barras
 	####################################################################
 	@abc.abstractmethod
-	def ambosPobBar(self, prefijo2):
+	def ambosPobBar(self):
 		pass
 
 
@@ -95,7 +93,7 @@ class INE(CargadorINE):
 	####################################################################
 	# Función para guardar la población total en un mapa
 	####################################################################
-	def totalPobMapa(self, prefijo, prefijo2):
+	def totalPobMapa(self):
 		# Obtenemos la información de la URL
 		try:
 			info = requests.get(URL_POBLACION)
@@ -107,7 +105,7 @@ class INE(CargadorINE):
 				poblacion.append(jsonInfo[i]["Data"][0]["Valor"] / 100000.0)
 
 			# Leemos el geojson e incluimos la nueva columna
-			m = prefijo + "geojson/spain-provinces.geojson"
+			m = "Datos/geojson/spain-provinces.geojson"
 			map_data = gpd.read_file(m)
 			map_data['POB2020'] = 0.0
 		
@@ -134,7 +132,7 @@ class INE(CargadorINE):
 			map_data.plot(column='POB2020', cmap='plasma', ax=ax,
 		          legend=True, cax=cax, zorder=5)
 		
-			plt.savefig(prefijo2 + "total_pob_mapa.png")
+			plt.savefig("static/total_pob_mapa.png")
 		
 			return "Mapa del total de la población generado correctamente."
 		
@@ -147,7 +145,7 @@ class INE(CargadorINE):
 	####################################################################
 	# Función para guardar la población total de hombres en un mapa
 	####################################################################
-	def homPobMapa(self, prefijo, prefijo2):
+	def homPobMapa(self):
 		# Obtenemos la información de la URL
 		try:
 			info = requests.get(URL_POBLACION)
@@ -159,7 +157,7 @@ class INE(CargadorINE):
 				poblacion.append(jsonInfo[i+ACCESO_HOMBRES]["Data"][0]["Valor"] / 100000.0)
 
 			# Leemos el geojson e incluimos la nueva columna
-			m = prefijo + "geojson/spain-provinces.geojson"
+			m = "Datos/geojson/spain-provinces.geojson"
 			map_data = gpd.read_file(m)
 			map_data['POB2020'] = 0.0
 		
@@ -186,7 +184,7 @@ class INE(CargadorINE):
 			map_data.plot(column='POB2020', cmap='plasma', ax=ax,
 		          legend=True, cax=cax, zorder=5)
 		
-			plt.savefig(prefijo2 + "hom_pob_mapa.png")
+			plt.savefig("static/hom_pob_mapa.png")
 		
 			return "Mapa del total de hombres generado correctamente."
 		
@@ -197,7 +195,7 @@ class INE(CargadorINE):
 	####################################################################
 	# Función para guardar la población total de mujeres en un mapa
 	####################################################################
-	def mujPobMapa(self, prefijo, prefijo2):
+	def mujPobMapa(self):
 		# Obtenemos la información de la URL
 		try:
 			info = requests.get(URL_POBLACION)
@@ -209,7 +207,7 @@ class INE(CargadorINE):
 				poblacion.append(jsonInfo[i+ACCESO_MUJERES]["Data"][0]["Valor"] / 100000.0)
 
 			# Leemos el geojson e incluimos la nueva columna
-			m = prefijo + "geojson/spain-provinces.geojson"
+			m = "Datos/geojson/spain-provinces.geojson"
 			map_data = gpd.read_file(m)
 			map_data['POB2020'] = 0.0
 		
@@ -236,7 +234,7 @@ class INE(CargadorINE):
 			map_data.plot(column='POB2020', cmap='plasma', ax=ax,
 		          legend=True, cax=cax, zorder=5)
 		
-			plt.savefig(prefijo2 + "muj_pob_mapa.png")
+			plt.savefig("static/muj_pob_mapa.png")
 		
 			return "Mapa del total de mujeres generado correctamente."
 		
@@ -247,7 +245,7 @@ class INE(CargadorINE):
 	####################################################################            
 	# Función para guardar la población total en un gráfico de barras
 	####################################################################
-	def totalPobBar(self, prefijo2):
+	def totalPobBar(self):
 		# Obtenemos la información de la URL
 		try:
 			info = requests.get(URL_POBLACION)
@@ -275,7 +273,7 @@ class INE(CargadorINE):
 			ax.set_xlabel('Población (en 100 000 habitantes)')
 
 			plt.title('Población total por provincias')
-			plt.savefig(prefijo2 + "total_pob_bar.png")
+			plt.savefig("static/total_pob_bar.png")
 		
 			return "Gráfico de barras del total de la población generado correctamente."
 		
@@ -286,7 +284,7 @@ class INE(CargadorINE):
 	####################################################################            
 	# Función para guardar la población hombres en un gráfico de barras
 	####################################################################
-	def homPobBar(self, prefijo2):
+	def homPobBar(self):
 		# Obtenemos la información de la URL
 		try:
 			info = requests.get(URL_POBLACION)
@@ -314,7 +312,7 @@ class INE(CargadorINE):
 			ax.set_xlabel('Población (en 100 000 habitantes)')
 
 			plt.title('Población hombres por provincias')
-			plt.savefig(prefijo2 + "hom_pob_bar.png")
+			plt.savefig("static/hom_pob_bar.png")
 		
 			return "Gráfico de barras de hombres generado correctamente."
 		
@@ -325,7 +323,7 @@ class INE(CargadorINE):
 	####################################################################            
 	# Función para guardar la población mujeres en un gráfico de barras
 	####################################################################
-	def mujPobBar(self, prefijo2):
+	def mujPobBar(self):
 		# Obtenemos la información de la URL
 		try:
 			info = requests.get(URL_POBLACION)
@@ -353,7 +351,7 @@ class INE(CargadorINE):
 			ax.set_xlabel('Población (en 100 000 habitantes)')
 
 			plt.title('Población mujeres por provincias')
-			plt.savefig(prefijo2 + "hom_pob_bar.png")
+			plt.savefig("static/muj_pob_bar.png")
 		
 			return "Gráfico de barras de mujeres generado correctamente."
 		
@@ -365,7 +363,7 @@ class INE(CargadorINE):
 	####################################################################            
 	# Función para guardar la población hombres/mujeres en un gráfico de barras
 	####################################################################
-	def ambosPobBar(self, prefijo2):
+	def ambosPobBar(self):
 		# Obtenemos la información de la URL
 		try:
 			info = requests.get(URL_POBLACION)
@@ -402,7 +400,7 @@ class INE(CargadorINE):
 			ax.legend()
 
 			plt.title('Población hombres/mujeres por provincias')
-			plt.savefig(prefijo2 + "ambos_pob_bar.png")
+			plt.savefig("static/ambos_pob_bar.png")
 		
 			return "Gráfico de barras de hombres y mujeres generado correctamente."
 	    

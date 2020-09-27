@@ -2,14 +2,9 @@ import pytest
 import threading
 
 from ..DatosDemograficos.Datos import INE_tools
-from ..DatosDemograficos.Datos import geojson
-from ..DatosDemograficos.Datos import static
 from ..DatosDemograficos.Datos import settings
 import webapp
 import api
-
-PREFIJO = "Datos/"
-PREFIJO2 = "Datos/static/"
 
 @pytest.fixture
 def client():
