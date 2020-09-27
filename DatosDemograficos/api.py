@@ -7,7 +7,9 @@ api = Api(app)
 
 class BusquedaDatos(Resource):
 	def __init__(self, ine_busqueda):
-		self.ine_busqueda = ine_busqueda # !!!!!! INYECCIÓN/INVERSIÓN DE DEPENDENCIAS !!!!!!
+		# !!!!!! INYECCIÓN/INVERSIÓN DE DEPENDENCIAS !!!!!! 
+		# ine_busuqeda debe heredar de la clase abstracta Datos.INE_tools.CargadorINE 
+		self.ine_busqueda = ine_busqueda 
 		
 	def get(self, filtro):
 		return self.ine_busqueda.INEDataBase(filtro)

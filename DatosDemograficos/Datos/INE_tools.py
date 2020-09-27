@@ -5,15 +5,16 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 import numpy as np
 import unicodedata
+import abc # Abstract Base Classes
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 from .settings import *
 
-####################################################################
-#Función principal que se encarga de crear el gráfico adecuado     
-####################################################################
+class CargadorINE(abc.ABC):
+	####################################################################
+	#Función principal que se encarga de crear el gráfico adecuado     
+	####################################################################
 
-class INE:
 	def INEDataBase(self, filtro):
 		prefijo = "Datos/"
 		prefijo2 = "static/"
@@ -36,7 +37,61 @@ class INE:
 			filtro = "non_valid"
 		    
 		return filtro
+	
+	####################################################################
+	# Función para guardar la población total en un mapa
+	####################################################################
+	@abc.abstractmethod
+	def totalPobMapa(self, prefijo, prefijo2):
+		pass
+		    		    
+	####################################################################
+	# Función para guardar la población total de hombres en un mapa
+	####################################################################
+	@abc.abstractmethod
+	def homPobMapa(self, prefijo, prefijo2):
+		pass
 
+	####################################################################
+	# Función para guardar la población total de mujeres en un mapa
+	####################################################################
+	@abc.abstractmethod
+	def mujPobMapa(self, prefijo, prefijo2):
+		pass
+
+	####################################################################            
+	# Función para guardar la población total en un gráfico de barras
+	####################################################################
+	@abc.abstractmethod
+	def totalPobBar(self, prefijo2):
+		pass
+
+	####################################################################            
+	# Función para guardar la población hombres en un gráfico de barras
+	####################################################################
+	@abc.abstractmethod
+	def homPobBar(self, prefijo2):
+		pass
+
+	####################################################################            
+	# Función para guardar la población mujeres en un gráfico de barras
+	####################################################################
+	@abc.abstractmethod
+	def mujPobBar(self, prefijo2):
+		pass
+		    
+
+	####################################################################            
+	# Función para guardar la población hombres/mujeres en un gráfico de barras
+	####################################################################
+	@abc.abstractmethod
+	def ambosPobBar(self, prefijo2):
+		pass
+
+
+
+
+class INE(CargadorINE):
 	####################################################################
 	# Función para guardar la población total en un mapa
 	####################################################################
