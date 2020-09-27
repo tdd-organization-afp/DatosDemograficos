@@ -10,7 +10,6 @@ import api
 
 PREFIJO = "Datos/"
 PREFIJO2 = "Datos/static/"
-subprocesos = []
 
 @pytest.fixture
 def client():
